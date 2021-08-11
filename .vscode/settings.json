@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "c:\\Users\\casaa\\Downloads\\postgresql-42.2.23.jre7.jar"
+        ],
+        "exclude": [
+            "c:\\Users\\casaa\\Downloads\\postgresql-42.2.23.jar"
+        ]
+    }
+}
