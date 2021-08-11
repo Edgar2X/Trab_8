@@ -1,39 +1,38 @@
+//Esse é o Main
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Main{
     public static void main(String[] args) {
+        //Iniciei uma nova conexão, agora vou mostrar exemplos executando o codigo.
         cone con = new cone();
-        //String create = "INSERT into aluno (idaluno,nome)"+
-                    // " values(5,'Lars Dash')";
-        //int res_c = con.executa(create);
+        String create = "INSERT into aprovados_conc (id,nome)"+
+                    " values(3,'José')";
+        int res_c = con.executa(create);
 
-        String read = "SELECT * from aluno";
+        String update = "UPDATE aprovados_conc SET nome ='Mario' WHERE id = 1";
+        int res_u = con.executa(update);
+
+        //Na hora da busca vou imprimir através de um WHILE os resultados requisitados
+        String read = "SELECT * from profissao";
         ResultSet rs = con.busca(read);
-        //String nome = rs.getString("nome");
+
         //String delete = "DELETE FROM aluno WHERE idaluno=4";
         //int res_d = con.executa(delete);
 
-        //String update = "UPDATE aluno SET nome = 'Marcos Castro' WHERE idaluno = 2";
-        //int res_u = con.executa(update);
-
-        System.out.println( rs );
         try {
-            while (rs.next()){
-                int id = rs.getInt("idaluno");
-                String nome = rs.getString("nome");
-                System.out.println(nome);
+          while (rs.next()){
+               int id = rs.getInt("id");
+               String cargo = rs.getString("cargo");
+               System.out.println(cargo);
+               
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
-        if( rs != null ){
-            System.out.println("Massa dmais!!!");
-        
-        }else{
-            System.out.println("Paia dmais!!");
-        }
+        System.out.println(update);
+
     }
 }
