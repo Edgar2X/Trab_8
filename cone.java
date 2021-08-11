@@ -31,13 +31,21 @@ public class cone {
             con.close();
             return res;
         }catch(Exception e){
-            System.out.println("Foi aqui oh!!!!");
             e.printStackTrace();
             return 0;
         }
     }
-
-    
+    public ResultSet busca(String sql){
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(sql);
+            con.close();
+            return rs;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }    
 }
 
 
